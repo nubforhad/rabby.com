@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RABBY NET - কামরাঙ্গিরচরের সেরা ইন্টারনেট সেবা</title>
+<meta name="description" content="RABBY NET - সরকার নির্ধারিত মূল্যে নিরবিচ্ছিন্ন অপটিক্যাল ফাইবার ইন্টারনেট সংযোগ।">
+
+<!-- Bootstrap 5 -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --rb-red:#e6262f;
+    --rb-red-dark:#a91b22;
+    --rb-ink:#14181f;
+    --rb-panel:#1c2129;
+    --rb-gold:#f4b400;
+    --rb-cream:#f7f5f1;
+    --rb-muted:#6b7280;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    font-family:'Hind Siliguri','Poppins',sans-serif;
+    background:var(--rb-cream);
+    color:var(--rb-ink);
+  }
+  .brand-font{font-family:'Poppins',sans-serif;}
+
+  /* Top utility bar */
+  .topbar{
+    background:var(--rb-ink);
+    color:#cbd2dc;
+    font-size:.85rem;
+  }
+  .topbar a{color:#cbd2dc;text-decoration:none;transition:color .2s;}
+  .topbar a:hover{color:var(--rb-gold);}
+  .topbar .divider{opacity:.25;}
+
+  /* Header */
+  .site-header{
+    background:#fff;
+    border-bottom:4px solid var(--rb-red);
+  }
+  .logo-mark{
+    width:56px;height:56px;border-radius:14px;
+    background:linear-gradient(145deg,var(--rb-red),var(--rb-red-dark));
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-weight:800;font-size:1.4rem;
+    box-shadow:0 6px 16px rgba(230,38,47,.35);
+    font-family:'Poppins',sans-serif;
+  }
+  .brand-title{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;color:var(--rb-ink);letter-spacing:.2px;}
+  .brand-sub{font-size:.78rem;color:var(--rb-muted);letter-spacing:.5px;text-transform:uppercase;}
+
+  .btn-rb{
+    background:var(--rb-red);border:none;color:#fff;font-weight:600;
+    padding:.55rem 1.3rem;border-radius:8px;transition:.2s;
+  }
+  .btn-rb:hover{background:var(--rb-red-dark);color:#fff;}
+
+  /* Notice ticker - signature element */
+  .ticker-bar{
+    background:var(--rb-panel);
+    color:#f1f1f1;
+    overflow:hidden;
+    position:relative;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .ticker-label{
+    background:var(--rb-red);
+    font-weight:700;
+    font-size:.85rem;
+    white-space:nowrap;
+    display:flex;align-items:center;gap:.4rem;
+    z-index:2;
+  }
+  .live-dot{
+    width:8px;height:8px;border-radius:50%;
+    background:#fff;
+    animation:pulse-dot 1.4s infinite;
+  }
+  @keyframes pulse-dot{
+    0%{box-shadow:0 0 0 0 rgba(255,255,255,.6);}
+    70%{box-shadow:0 0 0 7px rgba(255,255,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(255,255,255,0);}
+  }
+  .ticker-track{
+    display:inline-flex;
+    white-space:nowrap;
+    animation:ticker-scroll 26s linear infinite;
+    padding-left:100%;
+    font-size:.9rem;
+  }
+  .ticker-track span{padding-right:4rem;}
+  .ticker-bar:hover .ticker-track{animation-play-state:paused;}
+  @keyframes ticker-scroll{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+
+  /* Hero */
+  .hero{
+    background:
+      radial-gradient(circle at 85% 20%, rgba(230,38,47,.18), transparent 45%),
+      linear-gradient(180deg,var(--rb-ink) 0%, #1e232c 100%);
+    color:#fff;
+    padding:4.2rem 0 5rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.04) 1px, transparent 1px);
+    background-size:22px 22px;
+    pointer-events:none;
+  }
+  .hero .eyebrow{
+    color:var(--rb-gold);font-weight:600;letter-spacing:2px;font-size:.8rem;text-transform:uppercase;
+  }
+  .hero h1{
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:2.6rem;line-height:1.25;
+  }
+  .hero p.lead-text{color:#c7cdd6;font-size:1.05rem;max-width:560px;}
+  .stat-chip{
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:12px;padding:1rem 1.2rem;
+  }
+  .stat-chip .num{font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;color:var(--rb-gold);}
+  .stat-chip .lbl{font-size:.78rem;color:#a7afba;}
+
+  /* Package cards */
+  .section-title{
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:1.9rem;
+  }
+  .section-eyebrow{
+    color:var(--rb-red);font-weight:700;letter-spacing:1.5px;font-size:.8rem;text-transform:uppercase;
+  }
+  .pkg-card{
+    background:#fff;border-radius:16px;padding:2rem 1.6rem;
+    border:1px solid #eee;
+    transition:.25s;height:100%;
+  }
+  .pkg-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(20,24,31,.1);border-color:transparent;}
+  .pkg-card.featured{
+    background:linear-gradient(160deg,var(--rb-red),var(--rb-red-dark));
+    color:#fff;border:none;
+  }
+  .pkg-card.featured .pkg-price,.pkg-card.featured .pkg-note{color:#fff;}
+  .pkg-badge{
+    position:absolute;top:-12px;right:1.5rem;
+    background:var(--rb-gold);color:var(--rb-ink);
+    font-size:.72rem;font-weight:700;padding:.25rem .7rem;border-radius:20px;
+  }
+  .pkg-price{font-family:'Poppins',sans-serif;font-weight:800;font-size:2.1rem;}
+  .pkg-price span{font-size:1rem;font-weight:500;}
+  .pkg-card ul{list-style:none;padding:0;margin:1.2rem 0;}
+  .pkg-card ul li{padding:.35rem 0;font-size:.92rem;}
+  .pkg-card ul li i{color:var(--rb-red);width:20px;}
+  .pkg-card.featured ul li i{color:var(--rb-gold);}
+
+  /* Notice board */
+  .notice-list .list-group-item{
+    border:none;border-bottom:1px dashed #e3e0da;
+    padding:1rem 0;background:transparent;
+  }
+  .notice-date{
+    background:var(--rb-ink);color:#fff;border-radius:10px;
+    width:52px;height:52px;display:flex;flex-direction:column;
+    align-items:center;justify-content:center;font-family:'Poppins',sans-serif;
+    flex-shrink:0;
+  }
+  .notice-date .d{font-weight:800;font-size:1.1rem;line-height:1;}
+  .notice-date .m{font-size:.65rem;text-transform:uppercase;opacity:.8;}
+
+  /* Footer */
+  footer{background:var(--rb-ink);color:#c7cdd6;}
+  footer a{color:#c7cdd6;text-decoration:none;}
+  footer a:hover{color:var(--rb-gold);}
+  footer h6{color:#fff;font-family:'Poppins',sans-serif;font-weight:700;}
+  .social-btn{
+    width:38px;height:38px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+    transition:.2s;
+  }
+  .social-btn:hover{background:var(--rb-red);}
+
+  /* Floating call button */
+  .fab-call{
+    position:fixed;bottom:22px;right:22px;z-index:1050;
+    width:58px;height:58px;border-radius:50%;
+    background:var(--rb-red);color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;box-shadow:0 10px 24px rgba(230,38,47,.45);
+    animation:pulse-dot 2s infinite;
+  }
+  .fab-call:hover{color:#fff;background:var(--rb-red-dark);}
+
+  @media (max-width:768px){
+    .hero h1{font-size:2rem;}
+    .hero{padding:3rem 0 3.5rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- Top utility bar -->
+<div class="topbar py-2 d-none d-md-block">
+  <div class="container d-flex justify-content-between align-items-center">
+    <div>
+      <i class="fa-solid fa-location-dot me-1"></i> ২৫/১ মনসুরবাগ চৌরাস্তা, কামরাঙ্গিরচর, ঢাকা-১২১১
+    </div>
+    <div class="d-flex align-items-center gap-3">
+      <a href="tel:+8809611000000"><i class="fa-solid fa-phone me-1"></i>096-1100-0000</a>
+      <span class="divider">|</span>
+      <a href="mailto:rabby.isp@gmail.com"><i class="fa-solid fa-envelope me-1"></i>rabby.isp@gmail.com</a>
+      <span class="divider">|</span>
+      <a href="#"><i class="fa-brands fa-facebook me-1"></i>Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header py-3 sticky-top">
+  <div class="container d-flex justify-content-between align-items-center">
+    <a href="#" class="d-flex align-items-center gap-3 text-decoration-none">
+      <div class="logo-mark">RN</div>
+      <div>
+        <div class="brand-title">RABBY NET</div>
+        <div class="brand-sub">Internet Service Provider</div>
+      </div>
+    </a>
+    <nav class="d-none d-lg-flex align-items-center gap-4">
+      <a href="#home" class="text-decoration-none text-dark fw-medium">হোম</a>
+      <a href="#packages" class="text-decoration-none text-dark fw-medium">প্যাকেজ</a>
+      <a href="#notice" class="text-decoration-none text-dark fw-medium">নোটিশ</a>
+      <a href="#contact" class="text-decoration-none text-dark fw-medium">যোগাযোগ</a>
+    </nav>
+    <a href="https://portal.example.com" target="_blank" class="btn btn-rb d-none d-md-inline-block">
+      <i class="fa-solid fa-credit-card me-1"></i> বিল পরিশোধ
+    </a>
+  </div>
+</header>
+
+<!-- Notice ticker -->
+<div class="ticker-bar d-flex align-items-stretch">
+  <div class="ticker-label px-3 py-2"><span class="live-dot"></span> লাইভ নোটিশ</div>
+  <div class="d-flex align-items-center px-3 py-2 flex-grow-1 overflow-hidden">
+    <div class="ticker-track">
+      <span>🔔 প্রিয় গ্রাহক, RABBY NET-এ আপনাকে স্বাগতম। পুরো কামরাঙ্গিরচরে আমরা দিচ্ছি সরকার নির্ধারিত মূল্যে নিরবিচ্ছিন্ন অপটিক্যাল ফাইবার ইন্টারনেট সংযোগ।</span>
+      <span>⚠️ বিঃ দ্রঃ প্রতি মাসের ১০ তারিখের মধ্যে বিল পরিশোধ করুন, অন্যথায় সংযোগ স্বয়ংক্রিয়ভাবে বন্ধ হয়ে যাবে।</span>
+      <span>📶 নতুন সংযোগ নিতে যোগাযোগ করুন: ০৯৬-১১০০-০০০০</span>
+    </div>
+  </div>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7">
+        <div class="eyebrow mb-2">কামরাঙ্গিরচরের বিশ্বস্ত ইন্টারনেট প্রোভাইডার</div>
+        <h1 class="mb-3">নিরবিচ্ছিন্ন ইন্টারনেট,<br>স্বল্প মূল্যে <span style="color:var(--rb-gold);">RABBY NET</span> এর সাথে</h1>
+        <p class="lead-text mb-4">সরকার নির্ধারিত মূল্যে হাই-স্পিড অপটিক্যাল ফাইবার সংযোগ। ২৪/৭ গ্রাহক সেবা, দ্রুত সাপোর্ট এবং বিশ্বস্ততার নিশ্চয়তা।</p>
+        <div class="d-flex gap-3 mb-4">
+          <a href="#packages" class="btn btn-rb btn-lg">প্যাকেজ দেখুন</a>
+          <a href="tel:+8809611000000" class="btn btn-lg" style="background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.2);">
+            <i class="fa-solid fa-phone me-1"></i> এখনই কল করুন
+          </a>
+        </div>
+        <div class="row g-3">
+          <div class="col-4"><div class="stat-chip"><div class="num">৩০০০+</div><div class="lbl">সন্তুষ্ট গ্রাহক</div></div></div>
+          <div class="col-4"><div class="stat-chip"><div class="num">২৪/৭</div><div class="lbl">সাপোর্ট সার্ভিস</div></div></div>
+          <div class="col-4"><div class="stat-chip"><div class="num">৯৯.৯%</div><div class="lbl">আপটাইম</div></div></div>
+        </div>
+      </div>
+      <div class="col-lg-5 d-none d-lg-block text-center">
+        <i class="fa-solid fa-tower-broadcast" style="font-size:14rem;color:rgba(255,255,255,.06);"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Packages -->
+<section class="py-5" id="packages">
+  <div class="container py-4">
+    <div class="text-center mb-5">
+      <div class="section-eyebrow">আমাদের প্যাকেজসমূহ</div>
+      <h2 class="section-title">আপনার জন্য সেরা প্যাকেজ বেছে নিন</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="pkg-card position-relative">
+          <div class="pkg-note fw-semibold text-uppercase" style="color:var(--rb-muted);font-size:.8rem;">বেসিক</div>
+          <div class="pkg-price my-2">১০ Mbps <span>/মাসে ৫০০৳</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> আনলিমিটেড ডাটা</li>
+            <li><i class="fa-solid fa-check"></i> ফ্রি ইনস্টলেশন</li>
+            <li><i class="fa-solid fa-check"></i> ২৪/৭ সাপোর্ট</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-dark w-100">নিন এই প্যাকেজ</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pkg-card featured position-relative">
+          <span class="pkg-badge">জনপ্রিয়</span>
+          <div class="pkg-note fw-semibold text-uppercase" style="opacity:.85;font-size:.8rem;">স্ট্যান্ডার্ড</div>
+          <div class="pkg-price my-2">২০ Mbps <span>/মাসে ৮০০৳</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> আনলিমিটেড ডাটা</li>
+            <li><i class="fa-solid fa-check"></i> ফ্রি ইনস্টলেশন</li>
+            <li><i class="fa-solid fa-check"></i> ফ্রি রাউটার</li>
+            <li><i class="fa-solid fa-check"></i> অগ্রাধিকার সাপোর্ট</li>
+          </ul>
+          <a href="#contact" class="btn btn-light w-100 fw-semibold">নিন এই প্যাকেজ</a>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="pkg-card position-relative">
+          <div class="pkg-note fw-semibold text-uppercase" style="color:var(--rb-muted);font-size:.8rem;">প্রিমিয়াম</div>
+          <div class="pkg-price my-2">৪০ Mbps <span>/মাসে ১২০০৳</span></div>
+          <ul>
+            <li><i class="fa-solid fa-check"></i> আনলিমিটেড ডাটা</li>
+            <li><i class="fa-solid fa-check"></i> ফ্রি ইনস্টলেশন + রাউটার</li>
+            <li><i class="fa-solid fa-check"></i> ডেডিকেটেড লাইন</li>
+            <li><i class="fa-solid fa-check"></i> ভিআইপি সাপোর্ট</li>
+          </ul>
+          <a href="#contact" class="btn btn-outline-dark w-100">নিন এই প্যাকেজ</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Notice board -->
+<section class="py-5" style="background:#efece5;" id="notice">
+  <div class="container py-4">
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <div class="section-eyebrow">সর্বশেষ আপডেট</div>
+        <h2 class="section-title mb-4">নোটিশ বোর্ড</h2>
+        <div class="list-group notice-list">
+          <div class="list-group-item d-flex gap-3">
+            <div class="notice-date"><span class="d">১০</span><span class="m">সেপ্ট</span></div>
+            <div>
+              <h6 class="fw-bold mb-1">মাসিক বিল পরিশোধের সময়সীমা</h6>
+              <p class="mb-0 text-muted small">প্রতি মাসের ১০ তারিখের মধ্যে বিল পরিশোধ না করলে সংযোগ স্বয়ংক্রিয়ভাবে বন্ধ হয়ে যাবে।</p>
+            </div>
+          </div>
+          <div class="list-group-item d-flex gap-3">
+            <div class="notice-date"><span class="d">০৫</span><span class="m">সেপ্ট</span></div>
+            <div>
+              <h6 class="fw-bold mb-1">নতুন এলাকায় সংযোগ চালু</h6>
+              <p class="mb-0 text-muted small">কামরাঙ্গিরচরের নতুন কয়েকটি এলাকায় RABBY NET-এর সংযোগ চালু হয়েছে।</p>
+            </div>
+          </div>
+          <div class="list-group-item d-flex gap-3">
+            <div class="notice-date"><span class="d">০১</span><span class="m">সেপ্ট</span></div>
+            <div>
+              <h6 class="fw-bold mb-1">অনলাইন পেমেন্ট সুবিধা চালু</h6>
+              <p class="mb-0 text-muted small">এখন থেকে ঘরে বসেই আপনার বিল পরিশোধ করতে পারবেন আমাদের অনলাইন পোর্টালের মাধ্যমে।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="section-eyebrow">দ্রুত যোগাযোগ</div>
+        <h2 class="section-title mb-4">আমাদের সাথে যোগাযোগ করুন</h2>
+        <div class="bg-white rounded-4 p-4 shadow-sm">
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="fa-solid fa-location-dot fa-lg mt-1" style="color:var(--rb-red);"></i>
+            <div>২৫/১ মনসুরবাগ চৌরাস্তা, কামরাঙ্গিরচর, ঢাকা-১২১১।</div>
+          </div>
+          <div class="d-flex align-items-start gap-3 mb-3">
+            <i class="fa-solid fa-phone fa-lg mt-1" style="color:var(--rb-red);"></i>
+            <div>
+              <a href="tel:+8809611000000" class="text-dark text-decoration-none d-block">০৯৬-১১০০-০০০০</a>
+              <a href="tel:+8809622000000" class="text-dark text-decoration-none d-block">০৯৬-২২০০-০০০০</a>
+            </div>
+          </div>
+          <div class="d-flex align-items-start gap-3">
+            <i class="fa-solid fa-envelope fa-lg mt-1" style="color:var(--rb-red);"></i>
+            <div>rabby.isp@gmail.com</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="pt-5 pb-4" id="contact">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="d-flex align-items-center gap-2 mb-3">
+          <div class="logo-mark">RN</div>
+          <div class="fw-bold fs-5 text-white">RABBY NET</div>
+        </div>
+        <p class="small">কামরাঙ্গিরচরের বিশ্বস্ত ইন্টারনেট সেবা প্রদানকারী প্রতিষ্ঠান। সরকার নির্ধারিত মূল্যে নিরবিচ্ছিন্ন সংযোগের নিশ্চয়তা।</p>
+        <div class="d-flex gap-2">
+          <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="#" class="social-btn"><i class="fa-brands fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h6 class="mb-3">লিংকসমূহ</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><a href="#home">হোম</a></li>
+          <li class="mb-2"><a href="#packages">প্যাকেজ</a></li>
+          <li class="mb-2"><a href="#notice">নোটিশ</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-6">
+        <h6 class="mb-3">যোগাযোগ</h6>
+        <ul class="list-unstyled small">
+          <li class="mb-2"><i class="fa-solid fa-phone me-2"></i>০৯৬-১১০০-০০০০</li>
+          <li class="mb-2"><i class="fa-solid fa-envelope me-2"></i>rabby.isp@gmail.com</li>
+        </ul>
+      </div>
+      <div class="col-lg-3">
+        <h6 class="mb-3">বিল পরিশোধ</h6>
+        <p class="small mb-2">অনলাইন পোর্টালের মাধ্যমে দ্রুত বিল পরিশোধ করুন।</p>
+        <a href="#" class="btn btn-rb btn-sm">পোর্টালে যান</a>
+      </div>
+    </div>
+    <hr style="border-color:rgba(255,255,255,.1);" class="my-4">
+    <div class="text-center small" style="opacity:.7;">
+      &copy; <span id="year"></span> RABBY NET — All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<!-- Floating call button -->
+<a href="tel:+8809611000000" class="fab-call">
+  <i class="fa-solid fa-phone"></i>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
