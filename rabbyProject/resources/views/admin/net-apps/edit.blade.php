@@ -8,15 +8,12 @@
 
 <div class="py-6">
 
-    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {{-- Page Header --}}
         <div class="mb-6">
-
             <div class="flex items-center gap-3">
-
-                <a
-                    href="{{ route('net-apps.index') }}"
+                <a href="{{ route('net-apps.index') }}"
                     class="w-10 h-10 rounded-xl
                            bg-white border border-gray-200
                            text-gray-600

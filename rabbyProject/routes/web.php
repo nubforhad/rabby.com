@@ -32,10 +32,8 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-
     Route::resource('net-apps', NetAppController::class);
     Route::resource('live-tvs', LiveTvController::class);
-
 });
 
 
