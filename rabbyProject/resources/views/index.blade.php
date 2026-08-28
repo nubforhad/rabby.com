@@ -335,18 +335,22 @@
     <h2 class="sec-title">FTP server & Movie server</h2>
     <span class="sec-count" data-count-for="movies">9</span>
   </div>
+
+
+  @foreach ($ftpmovie as $ftpm)
+ 
   <div class="row g-3" id="movies">
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="icc ftp" href="#" style="animation-delay:.02s"><div class="card-icon"><i class="fa-solid fa-globe"></i></div><div class="card-title">ICC FTP</div></a></div>
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="sam ftp" href="#" style="animation-delay:.06s"><div class="card-icon"><i class="fa-solid fa-bolt"></i></div><div class="card-title">SAM FTP</div></a></div>
+    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="icc ftp" href="{{ $ftpm->link }}" style="animation-delay:.02s"><div class="card-icon"><i class="{{ $ftpm->icon }}"></i></div><div class="card-title"> {{ $ftpm->title }} </div></a></div>
+    {{-- <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="sam ftp" href="#" style="animation-delay:.06s"><div class="card-icon"><i class="fa-solid fa-bolt"></i></div><div class="card-title">SAM FTP</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="discovery cdn" href="#" style="animation-delay:.1s"><div class="card-icon"><i class="fa-solid fa-satellite-dish"></i></div><div class="card-title">Discovery CDN</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="discovery movies" href="#" style="animation-delay:.14s"><div class="card-icon"><i class="fa-solid fa-film"></i></div><div class="card-title">Discovery Movies</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="circle old" href="#" style="animation-delay:.18s"><div class="card-icon"><i class="fa-regular fa-circle"></i></div><div class="card-title">Circle (Old)</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="circle new" href="#" style="animation-delay:.22s"><div class="card-pill">NEW</div><div class="card-icon"><i class="fa-solid fa-record-vinyl"></i></div><div class="card-title">Circle (New)</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="movies world" href="#" style="animation-delay:.26s"><div class="card-icon"><i class="fa-solid fa-clapperboard"></i></div><div class="card-title">Movies World</div></a></div>
     <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="wow ftp" href="#" style="animation-delay:.3s"><div class="card-icon"><i class="fa-solid fa-server"></i></div><div class="card-title">WOW FTP</div></a></div>
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="bas play" href="#" style="animation-delay:.34s"><div class="card-icon"><i class="fa-solid fa-play"></i></div><div class="card-title">BAS PLAY</div></a></div>
+    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="bas play" href="#" style="animation-delay:.34s"><div class="card-icon"><i class="fa-solid fa-play"></i></div><div class="card-title">BAS PLAY</div></a></div> --}}
   </div>
-
+ @endforeach
   <!-- LIVE TV -->
   <div class="sec-head">
     <span class="sec-tick"></span>
@@ -354,11 +358,13 @@
     <span class="badge-new">NEW</span>
     <span class="sec-count" data-count-for="livetv">2</span>
   </div>
-  <div class="row g-3" id="livetv">
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="ksb net tv" href="#"><div class="card-icon"><i class="fa-solid fa-tv"></i></div><div class="card-title">KSB NET TV</div></a></div>
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="mobile tv app" href="#"><div class="card-pill">APP</div><div class="card-icon"><i class="fa-solid fa-download"></i></div><div class="card-title">Mobile &amp; TV</div></a></div>
-  </div>
+  @foreach ($livetv as $item)
 
+  <div class="row g-3" id="livetv">
+    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="ksb net tv" href="{{ $item->link }}"><div class="card-icon"><i class="{{ $item->icon }}"></i></div><div class="card-title"> {{ $item->title }} </div></a></div>
+    {{-- <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="mobile tv app" href="#"><div class="card-pill">APP</div><div class="card-icon"><i class="fa-solid fa-download"></i></div><div class="card-title">Mobile &amp; TV</div></a></div> --}}
+  </div>
+  @endforeach
   <!-- KSB NET APP -->
   <div class="sec-head">
     <span class="sec-tick"></span>
