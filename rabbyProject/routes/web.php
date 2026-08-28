@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetAppController;
 use App\Http\Controllers\LiveTvController;
 use App\Http\Controllers\FtpMovieController;
-
+use App\Http\Controllers\SettingController;
 
 
 
@@ -31,6 +31,16 @@ Route::get('/dashboard', function () {
     return view('admin.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
+
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/settings', [SettingController::class, 'index'])
+        ->name('settings.index');
+
+    Route::put('/settings', [SettingController::class, 'update'])
+        ->name('settings.update');
+
+});
 
 Route::middleware(['auth'])->group(function () {
 
