@@ -5,6 +5,7 @@ use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetAppController;
 use App\Http\Controllers\LiveTvController;
+use App\Http\Controllers\FtpMovieController;
 
 
 
@@ -32,8 +33,11 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth'])->group(function () {
+
     Route::resource('net-apps', NetAppController::class);
     Route::resource('live-tvs', LiveTvController::class);
+     Route::resource('ftp-movies', FtpMovieController::class);
+
 });
 
 
