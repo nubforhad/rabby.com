@@ -242,7 +242,7 @@
 
 
                     {{-- =========================
-                        SUB TITLE
+                        LINK
                     ========================== --}}
                     <div>
 
@@ -250,7 +250,7 @@
                             for="sub_title"
                             class="block text-sm font-semibold text-gray-700 mb-2"
                         >
-                            Sub Title
+                           Link
                         </label>
 
                         <div class="relative">
@@ -282,7 +282,7 @@
                                 id="sub_title"
                                 name="sub_title"
                                 value="{{ old('sub_title') }}"
-                                placeholder="Admin Dashboard"
+                                placeholder="https://www.rabby.com/"
                                 class="w-full
                                        h-12
                                        pl-11 pr-4
@@ -297,13 +297,14 @@
                                        focus:border-indigo-500
                                        focus:ring-4
                                        focus:ring-indigo-500/10"
+                                       
                             >
 
                         </div>
 
-                        <p class="mt-2 text-xs text-gray-500">
+                        {{-- <p class="mt-2 text-xs text-gray-500">
                             A short description for this application.
-                        </p>
+                        </p> --}}
 
                         @error('sub_title')
 

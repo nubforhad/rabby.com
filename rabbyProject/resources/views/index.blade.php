@@ -332,7 +332,7 @@
   <!-- MOVIE & FTP SERVERS -->
   <div class="sec-head">
     <span class="sec-tick"></span>
-    <h2 class="sec-title">Movie &amp; FTP Servers</h2>
+    <h2 class="sec-title">FTP server & Movie server</h2>
     <span class="sec-count" data-count-for="movies">9</span>
   </div>
   <div class="row g-3" id="movies">
@@ -365,9 +365,20 @@
     <h2 class="sec-title">Rabby NET App</h2>
     <span class="sec-count" data-count-for="ksbapp">1</span>
   </div>
-  <div class="row g-3" id="ksbapp">
-    <div class="col-6 col-md-4 col-lg-2"><a class="link-card" data-name="myksb net" href="#"><div class="card-icon"><i class="fa-solid fa-mobile-screen"></i></div><div class="card-title">MyKSB NET</div></a></div>
-  </div>
+  @foreach($netapp as $net)
+    <div class="row g-3" id="ksbapp">
+      <div class="col-6 col-md-4 col-lg-2">
+        <a class="link-card"  data-name="{{ $net->title }}" href="{{ $net->sub_title }}" target="_blank" >
+          <div class="card-icon">
+             <i class="{{ $net->icon }}"></i>
+          </div>
+          <div class="card-title">
+            {{ $net->title }}
+          </div>
+        </a>
+      </div>
+    </div>
+  @endforeach
 
   <div class="no-results" id="noResults">
     <i class="fa-solid fa-magnifying-glass mb-2 d-block fs-3"></i>

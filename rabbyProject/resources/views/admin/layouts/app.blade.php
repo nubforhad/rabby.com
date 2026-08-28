@@ -103,11 +103,16 @@
 
             {{-- Products --}}
             <a href="{{  route('net-apps.index') }}"
-               class="flex items-center gap-3 px-4 py-3 rounded-lg
-                      text-gray-300 hover:bg-slate-800 hover:text-white transition">
-
+               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-white transition">
                 <span>📦</span>
-                <span>net apps</span>
+                <span>Net Apps</span>
+            </a>
+            
+            {{-- Products --}}
+            <a href="{{  route('live-tvs.index') }}"
+               class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-white transition">
+                <span>📦</span>
+                <span>Live Tvs</span>
             </a>
 
 

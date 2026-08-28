@@ -4,6 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetAppController;
+use App\Http\Controllers\LiveTvController;
+
+
 
 
 /*
@@ -31,6 +34,7 @@ Route::get('/dashboard', function () {
 Route::middleware(['auth'])->group(function () {
 
     Route::resource('net-apps', NetAppController::class);
+    Route::resource('live-tvs', LiveTvController::class);
 
 });
 
