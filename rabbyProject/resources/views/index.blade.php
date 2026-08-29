@@ -88,9 +88,32 @@
     backdrop-filter: blur(14px);
     position:sticky; top:0; z-index:50;
   }
-  .brand-mark{
-    display:flex; align-items:center; gap:.65rem;
-  }
+  .brand-mark {
+    display: flex;
+    align-items: center;
+}
+
+.brand-logo {
+    width: 180px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+    .brand-mark {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .brand-logo {
+        width: 160px;
+        height: 55px;
+    }
+}
   .brand-badge{
     width:44px;height:44px;border-radius:12px;
     background:linear-gradient(145deg, var(--fiber-red), #9c1729);
@@ -286,13 +309,22 @@
 <!-- NAVBAR -->
 <div class="navbar-wrap">
   <div class="container py-3 d-flex align-items-center justify-content-between flex-wrap gap-3">
-    <div class="brand-mark">
+    {{-- <div class="brand-mark">
       <div class="brand-badge">K</div>
       <div>
         <div class="brand-name">Rabby<span>NET</span></div>
         <div class="brand-tag">We Believe In Quality</div>
       </div>
-    </div>
+    </div> --}}
+    <div class="brand-mark">
+    @if($settings?->logo)
+        <img
+            src="{{ asset('storage/' . $settings->logo) }}"
+            alt="Logo"
+            class="brand-logo mx-auto"
+        >
+    @endif
+</div>
 
     <div class="d-flex align-items-center gap-4 nav-links">
       <a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
@@ -313,13 +345,13 @@
   <div class="notice-bar mt-4 mb-4">
     <div class="marquee-track bangla px-3">
       <span>
+        <span class="lead-tag"> {{ $settings->headline }} </span> 
+        
+      </span>
+      {{-- <span aria-hidden="true">
         <span class="lead-tag">প্রিয় গ্রাহক:</span> Rabby NET-এ আপনাকে স্বাগতম। পুরো কামরাঙ্গিরচর-এ আমরা দিচ্ছি সরকার নির্ধারিত মূল্যে নিরবিচ্ছিন্ন অপটিক্যাল ফাইবার ইন্টারনেট সংযোগ। &nbsp;•&nbsp;
         <span class="sub-tag">বিঃ দ্রঃ:</span> দয়া করে প্রতারক চক্র থেকে সতর্ক থাকুন এবং সরাসরি আমাদের অফিসে যোগাযোগ করুন।
-      </span>
-      <span aria-hidden="true">
-        <span class="lead-tag">প্রিয় গ্রাহক:</span> Rabby NET-এ আপনাকে স্বাগতম। পুরো কামরাঙ্গিরচর-এ আমরা দিচ্ছি সরকার নির্ধারিত মূল্যে নিরবিচ্ছিন্ন অপটিক্যাল ফাইবার ইন্টারনেট সংযোগ। &nbsp;•&nbsp;
-        <span class="sub-tag">বিঃ দ্রঃ:</span> দয়া করে প্রতারক চক্র থেকে সতর্ক থাকুন এবং সরাসরি আমাদের অফিসে যোগাযোগ করুন।
-      </span>
+      </span> --}}
     </div>
   </div>
 
@@ -395,13 +427,40 @@
 <!-- FLOATING CALL -->
 <a href="tel:09666738500" class="float-call"><i class="fa-solid fa-phone"></i></a>
 
+<style>
+  .foot-brand {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+  }
+
+  .foot-brand .brand-logo {
+      width: 180px;
+      height: 60px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto;
+  }
+</style>
+
 <!-- FOOTER -->
 <footer>
   <span class="sec-tick d-inline-block mb-3"></span>
-  <div class="foot-brand">Rabby NET MEDIA</div>
-  <div class="foot-line bangla"> Badda Dhaka  </div>
-  <div class="foot-phone"><i class="fa-solid fa-phone"></i> 09666738500 , 09601600500</div>
-  <div class="copyright">© 2026 Rabby NET MEDIA — All Rights Reserved.</div>
+  {{-- <div class="foot-brand">{{ $settings->logo }}</div> --}}
+  <div class="foot-brand">
+    @if($settings?->logo)
+        <img
+            src="{{ asset('storage/' . $settings->logo) }}"
+            alt="Logo"
+            class="brand-logo"
+        >
+    @endif
+</div>
+  <div class="foot-line bangla"> {{ $settings->address }} </div>
+  <div class="foot-phone"><i class="fa-solid fa-phone"></i> {{ $settings->mobile }} </div>
+  <div class="copyright"> {{ $settings->footer_text }}</div>
 </footer>
 
 <script>
