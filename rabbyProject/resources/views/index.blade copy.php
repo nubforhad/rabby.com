@@ -364,7 +364,7 @@
   <!-- MOVIE & FTP SERVERS -->
   <div class="sec-head">
     <span class="sec-tick"></span>
-    <h2 class="sec-title"> {{ $category1->title }} </h2>
+    <h2 class="sec-title">FTP server & Movie server</h2>
     <span class="sec-count" data-count-for="movies">9</span>
   </div>
 
@@ -386,7 +386,7 @@
   <!-- LIVE TV -->
   <div class="sec-head">
     <span class="sec-tick"></span>
-    <h2 class="sec-title"> {{ $category2->title }}</h2>
+    <h2 class="sec-title">Live TV</h2>
     <span class="badge-new">NEW</span>
     <span class="sec-count" data-count-for="livetv">2</span>
   </div>
@@ -400,7 +400,7 @@
   <!-- KSB NET APP -->
   <div class="sec-head">
     <span class="sec-tick"></span>
-    <h2 class="sec-title"> {{ $category3->title }}</h2>
+    <h2 class="sec-title">Rabby NET App</h2>
     <span class="sec-count" data-count-for="ksbapp">1</span>
   </div>
   @foreach($netapp as $net)
