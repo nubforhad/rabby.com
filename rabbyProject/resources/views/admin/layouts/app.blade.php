@@ -123,35 +123,35 @@
             </a>
 
             {{-- Products --}}
-            <a href="{{ route('settings.index') }}"
+            {{-- <a href="{{ route('settings.index') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-lg text-gray-300 hover:bg-slate-800 hover:text-white transition">
                 <span>📦</span>
                 <span>Settings</span>
-            </a>
+            </a> --}}
 
 
             {{-- Orders --}}
-            <a href="#"
+            {{-- <a href="#"
                class="flex items-center gap-3 px-4 py-3 rounded-lg
                       text-gray-300 hover:bg-slate-800 hover:text-white transition">
 
                 <span>🛒</span>
                 <span>Orders</span>
-            </a>
+            </a> --}}
 
 
             {{-- Reports --}}
-            <a href="#"
+            {{-- <a href="#"
                class="flex items-center gap-3 px-4 py-3 rounded-lg
                       text-gray-300 hover:bg-slate-800 hover:text-white transition">
 
                 <span>📈</span>
                 <span>Reports</span>
-            </a>
+            </a> --}}
 
 
             {{-- Settings --}}
-            <a href="#"
+            <a href="{{ route('settings.index') }}"
                class="flex items-center gap-3 px-4 py-3 rounded-lg
                       text-gray-300 hover:bg-slate-800 hover:text-white transition">
 

@@ -420,7 +420,7 @@
 
   <div class="no-results" id="noResults">
     <i class="fa-solid fa-magnifying-glass mb-2 d-block fs-3"></i>
-    কোনো লিংক পাওয়া যায়নি
+    Not Found
   </div>
 </div>
 

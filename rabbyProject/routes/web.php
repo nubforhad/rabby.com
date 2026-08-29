@@ -7,6 +7,8 @@ use App\Http\Controllers\NetAppController;
 use App\Http\Controllers\LiveTvController;
 use App\Http\Controllers\FtpMovieController;
 use App\Http\Controllers\SettingController;
+use App\Http\Controllers\CategoryController;
+
 
 
 
@@ -46,7 +48,9 @@ Route::middleware(['auth'])->group(function () {
 
     Route::resource('net-apps', NetAppController::class);
     Route::resource('live-tvs', LiveTvController::class);
-     Route::resource('ftp-movies', FtpMovieController::class);
+    Route::resource('ftp-movies', FtpMovieController::class);
+
+    Route::resource('categories', CategoryController::class);
 
 });
 
