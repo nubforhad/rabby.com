@@ -48,7 +48,7 @@
             <div class="px-6 py-4 flex justify-between gap-4">
 
                 <span class="text-sm font-medium text-gray-500">
-                    Subtitle
+                    Sort Code
                 </span>
 
                 <span class="text-sm text-gray-800">

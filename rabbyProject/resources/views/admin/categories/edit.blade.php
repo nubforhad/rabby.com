@@ -63,7 +63,7 @@
         <div class="mb-5">
 
             <label class="block text-sm font-medium text-gray-700 mb-2">
-                Subtitle
+                Sort Code
             </label>
 
             <input type="text"

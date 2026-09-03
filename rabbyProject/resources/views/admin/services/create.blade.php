@@ -1,0 +1,252 @@
+@extends('admin.layouts.app')
+
+@section('content')
+
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+
+    <div class="mb-6">
+        <h1 class="text-2xl font-bold text-gray-800">
+            Add Service
+        </h1>
+
+        <p class="text-sm text-gray-500 mt-1">
+            Create a new service
+        </p>
+    </div>
+
+
+    {{-- Errors --}}
+    @if($errors->any())
+
+        <div class="mb-5 p-4 rounded-lg bg-red-50 border border-red-200">
+
+            <ul class="list-disc list-inside text-sm text-red-600">
+
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+
+            </ul>
+
+        </div>
+
+    @endif
+
+
+    <form
+        action="{{ route('services.store') }}"
+        method="POST"
+        enctype="multipart/form-data"
+        class="bg-white rounded-xl shadow-sm border border-gray-200 p-6"
+    >
+
+        @csrf
+
+
+        {{-- Category --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Category <span class="text-red-500">*</span>
+            </label>
+
+            <select
+                name="category_id"
+                required
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+
+                <option value="">
+                    Select Category
+                </option>
+
+                @foreach($categories as $category)
+
+                    <option
+                        value="{{ $category->id }}"
+                        {{ old('category_id') == $category->id ? 'selected' : '' }}
+                    >
+                        {{ $category->title }}
+                    </option>
+
+                @endforeach
+
+            </select>
+
+        </div>
+
+
+        {{-- Title --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Title <span class="text-red-500">*</span>
+            </label>
+
+            <input
+                type="text"
+                name="title"
+                value="{{ old('title') }}"
+                required
+                placeholder="Enter service title"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+
+        </div>
+
+
+        {{-- Sort Code --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Sort Code
+            </label>
+
+            <input
+                type="text"
+                name="sub_title"
+                value="{{ old('sub_title') }}"
+                placeholder="Example: 1"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+
+            <p class="text-xs text-gray-500 mt-1">
+                Enter a number like 1, 2, 3 to control service order.
+            </p>
+
+        </div>
+
+
+        {{-- Paragraph --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Paragraph
+            </label>
+
+            <textarea
+                name="paragraph"
+                rows="5"
+                placeholder="Enter service description"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >{{ old('paragraph') }}</textarea>
+
+        </div>
+
+
+        {{-- Link --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Link
+            </label>
+
+            <input
+                type="text"
+                name="link"
+                value="{{ old('link') }}"
+                placeholder="https://example.com"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+
+        </div>
+
+
+        {{-- Icon --}}
+        <div class="mb-5">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Icon
+            </label>
+
+            <input
+                type="text"
+                name="icon"
+                value="{{ old('icon') }}"
+                placeholder="fa-solid fa-globe"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500"
+            >
+
+            <p class="text-xs text-gray-500 mt-1">
+                Example: fa-solid fa-globe
+            </p>
+
+        </div>
+
+
+        {{-- Icon Image --}}
+        <div class="mb-6">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Icon Image
+            </label>
+
+            <input
+                type="file"
+                name="icon_image"
+                accept=".jpg,.jpeg,.png,.webp,.gif,image/*"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg bg-white text-gray-700 focus:ring-2 focus:ring-blue-500"
+            >
+
+            <p class="text-xs text-gray-500 mt-1">
+                Supported: JPG, JPEG, PNG, WEBP, GIF. Maximum 2MB.
+            </p>
+
+        </div>
+
+
+        {{-- Status --}}
+        <div class="mb-6">
+
+            <label class="block text-sm font-medium text-gray-700 mb-2">
+                Status
+            </label>
+
+            <select
+                name="status"
+                class="w-full px-4 py-2.5 border border-gray-300 rounded-lg"
+            >
+
+                <option
+                    value="1"
+                    {{ old('status', 1) == 1 ? 'selected' : '' }}
+                >
+                    Active
+                </option>
+
+                <option
+                    value="0"
+                    {{ old('status') === '0' ? 'selected' : '' }}
+                >
+                    Inactive
+                </option>
+
+            </select>
+
+        </div>
+
+
+        {{-- Buttons --}}
+        <div class="flex justify-end gap-3">
+
+            <a
+                href="{{ route('services.index') }}"
+                class="px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-lg text-sm"
+            >
+                Cancel
+            </a>
+
+            <button
+                type="submit"
+                class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-medium"
+            >
+                Save Service
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+@endsection

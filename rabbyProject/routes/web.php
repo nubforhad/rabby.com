@@ -8,7 +8,8 @@ use App\Http\Controllers\LiveTvController;
 use App\Http\Controllers\FtpMovieController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\CategoryController;
-
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\NoticeController;
 
 
 
@@ -35,13 +36,8 @@ Route::get('/dashboard', function () {
 
 
 Route::middleware(['auth'])->group(function () {
-
-    Route::get('/settings', [SettingController::class, 'index'])
-        ->name('settings.index');
-
-    Route::put('/settings', [SettingController::class, 'update'])
-        ->name('settings.update');
-
+    Route::get('/settings', [SettingController::class, 'index'])->name('settings.index');
+    Route::put('/settings', [SettingController::class, 'update'])->name('settings.update');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -51,7 +47,8 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('ftp-movies', FtpMovieController::class);
 
     Route::resource('categories', CategoryController::class);
-
+    Route::resource('services', ServiceController::class);
+    Route::resource('notices', NoticeController::class)->names('admin.notices');
 });
 
 

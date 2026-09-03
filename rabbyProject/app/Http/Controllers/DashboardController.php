@@ -3,47 +3,72 @@
 namespace App\Http\Controllers;
 
 use App\Models\LiveTv;
-use Illuminate\Http\Request;
 use App\Models\NetApp;
 use App\Models\FtpMovie;
 use App\Models\Setting;
 use App\Models\Category;
-
+use App\Models\Notice;
 
 class DashboardController extends Controller
 {
+    public function index()
+    {
+        // Website Settings
+        $settings = Setting::first();
 
+        $notic = Notice::first();
 
+        // Active Net Apps
+        $netapp = NetApp::where('status', 1)
+            ->get();
 
-public function index()
-{
-    $settings = Setting::first();
+        // Active Live TV
+        $livetv = LiveTv::where('status', 1)
+            ->get();
 
-    $netapp = NetApp::where('status', 1)->get();
-    $livetv = LiveTv::where('status', 1)->get();
-    $ftpmovie = FtpMovie::where('status', 1)->get();
+        // Active FTP Movies
+        $ftpmovie = FtpMovie::where('status', 1)
+            ->get();
 
-    $category1 = Category::where('id', 1)
-        ->where('status', 1)
-        ->first();
+        /*
+        |--------------------------------------------------------------------------
+        | Active Categories + Active Services
+        |--------------------------------------------------------------------------
+        |
+        | Category:
+        |   subtitle = serial/order
+        |
+        | Service:
+        |   sub_title = serial/order
+        |
+        | Only status = 1 will be displayed.
+        |
+        */
 
-    $category2 = Category::where('id', 2)
-        ->where('status', 1)
-        ->first();
+        $categories = Category::where('status', 1)
 
-    $category3 = Category::where('id', 3)
-        ->where('status', 1)
-        ->first();
+            // Active services only
+            ->with([
+                'services' => function ($query) {
+                    $query->where('status', 1)
+                        ->orderByRaw('CAST(sub_title AS UNSIGNED) ASC')
+                        ->orderBy('id', 'asc');
+                }
+            ])
 
-    return view('index', compact(
-        'netapp',
-        'ftpmovie',
-        'livetv',
-        'settings',
-        'category1',
-        'category2',
-        'category3'
-    ));
-}
+            // Category serial/order
+            ->orderByRaw('CAST(subtitle AS UNSIGNED) ASC')
+            ->orderBy('id', 'asc')
 
+            ->get();
+
+        return view('index', compact(
+            'settings',
+            'notic',
+            'netapp',
+            'livetv',
+            'ftpmovie',
+            'categories'
+        ));
+    }
 }

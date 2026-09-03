@@ -65,13 +65,13 @@
         <div class="mb-5">
 
             <label class="block text-sm font-medium text-gray-700 mb-2">
-                Subtitle
+                Sort Code
             </label>
 
             <input type="text"
                    name="subtitle"
                    value="{{ old('subtitle') }}"
-                   placeholder="Enter category subtitle"
+                   placeholder="Enter category Sort Code"
                    class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
 
         </div>
